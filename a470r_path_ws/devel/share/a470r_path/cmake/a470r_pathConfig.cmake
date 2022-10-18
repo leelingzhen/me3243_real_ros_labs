@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(a470r_path_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "/home/leelingzhen/me3243_real_ros_labs/a470r_path_ws/src/a470r_path/include " STREQUAL " ")
   set(a470r_path_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "/home/leelingzhen/me3243_real_ros_labs/a470r_path_ws/src/a470r_path/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -185,7 +185,7 @@ foreach(t ${a470r_path_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "")
+set(depends "roscpp;std_msgs;sensor_msgs;nav_msgs;geometry_msgs")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls

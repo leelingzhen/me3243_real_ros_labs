@@ -1,0 +1,15 @@
+# EE3305/ME3243
+# Name: Lee Ling Zhen
+# Matric : A0199407R
+
+Kp_a: 1
+Ki_a: 0
+Kd_a: 0.1
+
+Kp_x: 1
+Ki_x: 0
+Kd_x: 0.1
+dt: 0.1
+
+goal_x: 4
+goal_y: 5
