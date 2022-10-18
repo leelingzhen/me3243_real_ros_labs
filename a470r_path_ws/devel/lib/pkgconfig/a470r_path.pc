@@ -1,0 +1,8 @@
+prefix=/home/leelingzhen/me3243_real_ros_labs/a470r_path_ws/devel
+
+Name: a470r_path
+Description: Description of a470r_path
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
