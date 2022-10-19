@@ -3,7 +3,7 @@
 	<!--
 	EE3305/ME3243
 	Name: Lee Ling Zhen
-	Matric Number: A0199470R
+	Matric Number: A0199407R
 	-->
 <launch>
 	<arg name="model" default="burger"/>

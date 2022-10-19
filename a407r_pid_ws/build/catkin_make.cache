@@ -1,0 +1,2 @@
+a407r_pid
+-DCATKIN_DEVEL_PREFIX=/home/leelingzhen/me3243_real_ros_labs/a407r_pid_ws/devel -DCMAKE_INSTALL_PREFIX=/home/leelingzhen/me3243_real_ros_labs/a407r_pid_ws/install -G Unix Makefiles

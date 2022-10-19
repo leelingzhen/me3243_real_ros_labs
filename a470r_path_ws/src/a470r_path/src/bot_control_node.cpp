@@ -1,7 +1,7 @@
 /*
   EE3305/ME3243
-  Name: YOUR NAME
-  Matric number: YOUR MATRIC NUMBER
+  Name: Lee Ling Zhen
+  Matric number: A0199407R
 */
 
 #include <ros/ros.h>
