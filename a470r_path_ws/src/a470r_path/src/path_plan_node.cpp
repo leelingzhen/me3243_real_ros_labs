@@ -75,21 +75,21 @@ std::vector<std::array<int, 2>> findPath(int idx_x, int idx_y, int goal_x, int g
     // ---------------------- (1) Poll the queue -------------------------
 
     // ENTER YOUR COMMENT HERE
-    Node *cur_node = queue.front(); //  ...
-    queue.pop_front();              //  ...
+    Node *cur_node = queue.front(); //  initialise current node, where the front of the queue would be the current node
+    queue.pop_front();              //  remove the current node from the front of the queue to work on
     int cur_x = cur_node->x;        
     int cur_y = cur_node->y;
     int cur_cost = cur_node->cost;
 
     // ---------------------- (2) Find the path if goal is found, and break loop -------------------------
-    if (cur_x == goal_x && cur_y == goal_y)   // ...
+    if (cur_x == goal_x && cur_y == goal_y)   // checks if current node is indeed the goal position, start charting the path 
     {
       Node *node = cur_node;
       do
       {
-        path.push_back({node->x, node->y}); // ...
-        node = node->parent;                // ...
-      } while (node != nullptr);            // ...
+        path.push_back({node->x, node->y}); // start adding the coordinates to path, add them from the back sequentially
+        node = node->parent;                // point current working node to the previous/parent node retrieve the path via "backpropagation"
+      } while (node != nullptr);            // keep repeating the process until you reach the intial node, which is the start of the path, in which would point to a nullptr
       break;
     }
     // END OF YOUR COMMENT HERE
