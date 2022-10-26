@@ -1,2 +1,0 @@
-a470r_path
--DCATKIN_DEVEL_PREFIX=/home/leelingzhen/me3243_real_ros_labs/a470r_path_ws/devel -DCMAKE_INSTALL_PREFIX=/home/leelingzhen/me3243_real_ros_labs/a470r_path_ws/install -G Unix Makefiles

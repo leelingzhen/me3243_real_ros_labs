@@ -1,8 +1,0 @@
-prefix=/home/leelingzhen/me3243_real_ros_labs/a407r_pid_ws/install
-
-Name: a407r_pid
-Description: Description of a407r_pid
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: roscpp std_msgs sensor_msgs nav_msgs geometry_msgs gazebo_msgs
