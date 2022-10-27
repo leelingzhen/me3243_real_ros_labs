@@ -2,19 +2,19 @@
 # Name: Lee Ling Zhen
 # Matric number: A0199407R
 #
-
 Kp_f: 10
-ki_f: 0
+Ki_f: 0
 Kd_f: 0
 
-Kp_a: 10
-Ki_a: 0
-Kd_a: 0
+Kp_a: 17
+Ki_a: 1
+Kd_a: 0.5
 
-
+dt: 0.1
 target_distance: 1.7
 target_angle: 0
-dt: 0.1
 
 pillar_x: 12
 pillar_y: 10
+
+

@@ -1,7 +1,7 @@
 /*
 	EE3305/ME3243
 	Name: Lee Ling Zhen
-	Matric number: A0199407R
+	Matric number: A0199470R
 */
 
 #include "botcontrol.hpp"
@@ -90,9 +90,11 @@ void BotControl::pidAlgorithm(){
 	D_angle_ = (-error_angle_prev_ + error_angle_) / dt;
 
 	// ENTER YOUR CODE HERE
-    trans_forward_ = Kp_f * error_forward_ + Ki_f * I_forward_ + Kd_f * D_forward_;
+	// Summing forward PID
+	trans_forward_ = Kp_f * error_forward_ + Ki_f * I_forward_ + Kd_f + D_forward_;
 
-    trans_angle_ = Kp_a * error_angle_ + Ki_a * I_angle_ + Kd_a + D_angle_;
+	// Summing angle PID
+	trans_angle_ = Kp_a * error_angle_ + Ki_a * I_angle_ + Kd_a + D_angle_;
 	// END OF YOUR CODE HERE
 
 
