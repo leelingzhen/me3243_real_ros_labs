@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-    <arg name="student_pkg" value="a470r_path"/>
+    <arg name="student_pkg" value="a407r_path"/>
     <!-- Launch the parameters. -->
     <rosparam command="load" file="$(find a407r_path)/config/config.yaml"/>
     <!-- Launch all nodes in the student's package. -->
