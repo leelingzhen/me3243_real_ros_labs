@@ -113,7 +113,7 @@ std::vector<std::array<int, 2>> findPath(int idx_x, int idx_y, int goal_x, int g
       }
     }
 
-    // === (b) check WEST neighbor ===
+   // === (b) check WEST neighbor ===
     if (!cur_cell->walls[1] && cur_y < MAP_MAX_Y - 1)
     {                                             // west wall does not exist AND west cell exists ==> west cell is accessible
       Node *west_node = &nodes[cur_x][cur_y + 1]; // point to current node
@@ -142,8 +142,7 @@ std::vector<std::array<int, 2>> findPath(int idx_x, int idx_y, int goal_x, int g
         queue.push_back(south_node);
       }
     }
-
-    // === (d) check EAST neighbor ===
+// === (d) check EAST neighbor ===
     if (!cur_cell->walls[3] && cur_y > 0)
     {                                             // east wall does not exist AND east cell exists ==> east cell is accessible
       Node *east_node = &nodes[cur_x][cur_y - 1]; // point to current node
@@ -157,6 +156,8 @@ std::vector<std::array<int, 2>> findPath(int idx_x, int idx_y, int goal_x, int g
         queue.push_back(east_node);
       }
     }
+ 
+    
   }
   return path;
 }

@@ -6,10 +6,10 @@ Kp_a: 5
 Ki_a: 0
 Kd_a: 0
 
-Kp_x: 0.5
-Ki_x: 0
-Kd_x: 0
+Kp_x: 0.3
+Ki_x: 0.1
+Kd_x: 0.3
 dt: 0.1
 
-goal_x: 4
-goal_y: 5
+goal_x: 4.5
+goal_y: 5.5
