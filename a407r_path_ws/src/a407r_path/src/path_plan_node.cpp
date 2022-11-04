@@ -76,7 +76,7 @@ std::vector<std::array<int, 2>> findPath(int idx_x, int idx_y, int goal_x, int g
 
     // ENTER YOUR COMMENT HERE
     Node *cur_node = queue.front(); //  initialise current node, where the front of the queue would be the current node
-    queue.pop_front();              //  remove the current node from the front of the queue to work on
+    queue.pop_front();              //  remove the current node from the queue, from the front 
     int cur_x = cur_node->x;        
     int cur_y = cur_node->y;
     int cur_cost = cur_node->cost;
@@ -98,6 +98,22 @@ std::vector<std::array<int, 2>> findPath(int idx_x, int idx_y, int goal_x, int g
     // should use for loops, but kept it for beginners to understand
     Cell *cur_cell = &cells[cur_x][cur_y]; // point to current cell
 
+
+// === (d) check EAST neighbor ===
+    if (!cur_cell->walls[3] && cur_y > 0)
+    {                                             // east wall does not exist AND east cell exists ==> east cell is accessible
+      Node *east_node = &nodes[cur_x][cur_y - 1]; // point to current node
+      int new_east_cell_cost = cur_cost + 1;
+      int old_east_cell_cost = east_node->cost;
+      if (old_east_cell_cost > new_east_cell_cost)
+      { // east cell is cheaper to get there from current cell
+        // update parent and cost information for east cell, and queue it
+        east_node->cost = new_east_cell_cost;
+        east_node->parent = cur_node;
+        queue.push_back(east_node);
+      }
+    }
+ 
     // === (a) check NORTH neighbor ===
     if (!cur_cell->walls[0] && cur_x < MAP_MAX_X - 1)
     {                                              // north wall does not exist AND north cell exists ==> north cell is accessible
@@ -112,6 +128,7 @@ std::vector<std::array<int, 2>> findPath(int idx_x, int idx_y, int goal_x, int g
         queue.push_back(north_node);
       }
     }
+
 
    // === (b) check WEST neighbor ===
     if (!cur_cell->walls[1] && cur_y < MAP_MAX_Y - 1)
@@ -128,7 +145,7 @@ std::vector<std::array<int, 2>> findPath(int idx_x, int idx_y, int goal_x, int g
       }
     }
 
-    // === (c) check SOUTH neighbor ===
+// === (c) check SOUTH neighbor ===
     if (!cur_cell->walls[2] && cur_x > 0)
     {                                              // south wall does not exist AND south cell exists ==> south cell is accessible
       Node *south_node = &nodes[cur_x - 1][cur_y]; // point to current node
@@ -142,21 +159,8 @@ std::vector<std::array<int, 2>> findPath(int idx_x, int idx_y, int goal_x, int g
         queue.push_back(south_node);
       }
     }
-// === (d) check EAST neighbor ===
-    if (!cur_cell->walls[3] && cur_y > 0)
-    {                                             // east wall does not exist AND east cell exists ==> east cell is accessible
-      Node *east_node = &nodes[cur_x][cur_y - 1]; // point to current node
-      int new_east_cell_cost = cur_cost + 1;
-      int old_east_cell_cost = east_node->cost;
-      if (old_east_cell_cost > new_east_cell_cost)
-      { // east cell is cheaper to get there from current cell
-        // update parent and cost information for east cell, and queue it
-        east_node->cost = new_east_cell_cost;
-        east_node->parent = cur_node;
-        queue.push_back(east_node);
-      }
-    }
- 
+
+    
     
   }
   return path;
