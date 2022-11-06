@@ -113,37 +113,6 @@ std::vector<std::array<int, 2>> findPath(int idx_x, int idx_y, int goal_x, int g
         queue.push_back(east_node);
       }
     }
- 
-    // === (a) check NORTH neighbor ===
-    if (!cur_cell->walls[0] && cur_x < MAP_MAX_X - 1)
-    {                                              // north wall does not exist AND north cell exists ==> north cell is accessible
-      Node *north_node = &nodes[cur_x + 1][cur_y]; // point to current node
-      int new_north_cell_cost = cur_cost + 1;
-      int old_north_cell_cost = north_node->cost;
-      if (old_north_cell_cost > new_north_cell_cost)
-      { // north cell is cheaper to get there from current cell
-        // update parent and cost information for north cell, and queue it
-        north_node->cost = new_north_cell_cost;
-        north_node->parent = cur_node;
-        queue.push_back(north_node);
-      }
-    }
-
-
-   // === (b) check WEST neighbor ===
-    if (!cur_cell->walls[1] && cur_y < MAP_MAX_Y - 1)
-    {                                             // west wall does not exist AND west cell exists ==> west cell is accessible
-      Node *west_node = &nodes[cur_x][cur_y + 1]; // point to current node
-      int new_west_cell_cost = cur_cost + 1;
-      int old_west_cell_cost = west_node->cost;
-      if (old_west_cell_cost > new_west_cell_cost)
-      { // west cell is cheaper to get there from current cell
-        // update parent and cost information for west cell, and queue it
-        west_node->cost = new_west_cell_cost;
-        west_node->parent = cur_node;
-        queue.push_back(west_node);
-      }
-    }
 
 // === (c) check SOUTH neighbor ===
     if (!cur_cell->walls[2] && cur_x > 0)
@@ -160,6 +129,36 @@ std::vector<std::array<int, 2>> findPath(int idx_x, int idx_y, int goal_x, int g
       }
     }
 
+
+    // === (b) check WEST neighbor ===
+    if (!cur_cell->walls[1] && cur_y < MAP_MAX_Y - 1)
+    {                                             // west wall does not exist AND west cell exists ==> west cell is accessible
+      Node *west_node = &nodes[cur_x][cur_y + 1]; // point to current node
+      int new_west_cell_cost = cur_cost + 1;
+      int old_west_cell_cost = west_node->cost;
+      if (old_west_cell_cost > new_west_cell_cost)
+      { // west cell is cheaper to get there from current cell
+        // update parent and cost information for west cell, and queue it
+        west_node->cost = new_west_cell_cost;
+        west_node->parent = cur_node;
+        queue.push_back(west_node);
+      }
+    }
+
+    // === (a) check NORTH neighbor ===
+    if (!cur_cell->walls[0] && cur_x < MAP_MAX_X - 1)
+    {                                              // north wall does not exist AND north cell exists ==> north cell is accessible
+      Node *north_node = &nodes[cur_x + 1][cur_y]; // point to current node
+      int new_north_cell_cost = cur_cost + 1;
+      int old_north_cell_cost = north_node->cost;
+      if (old_north_cell_cost > new_north_cell_cost)
+      { // north cell is cheaper to get there from current cell
+        // update parent and cost information for north cell, and queue it
+        north_node->cost = new_north_cell_cost;
+        north_node->parent = cur_node;
+        queue.push_back(north_node);
+      }
+    }
     
     
   }
